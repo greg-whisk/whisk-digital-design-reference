@@ -4,7 +4,7 @@ A visual design reference for the whisk.digital website redesign. **This is not 
 
 The production site lives at https://github.com/greg-whisk/whisk-digital.
 
-Live preview: _(Netlify URL pending — will be added after first deploy)_
+Live preview: https://whisk-design-reference.netlify.app/
 
 ## Running locally
 
