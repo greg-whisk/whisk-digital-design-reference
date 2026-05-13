@@ -1,0 +1,205 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+
+  /* Whisk Digital tokens (extracted from whisk-digital.netlify.app) */
+  --cream: #fbf3ec;
+  --cream-soft: #f6ece2;
+  --cream-deep: #efe2d3;
+  --ink: #1c1b1a;
+  --ink-soft: #2a2826;
+  --ink-muted: #6b655e;
+  --rule: #d9ccbb;
+  --orange: #f26a2e;
+  --orange-press: #d85719;
+  --orange-soft: #ffd9c4;
+  --pink: #f2c8b4;
+  --pink-soft: #f7dccb;
+
+  --f-display: 'Fraunces', Georgia, serif;
+  --f-body: 'Poppins', system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: var(--cream-soft);
+  --card-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--cream);
+  --muted: var(--cream-deep);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--orange);
+  --accent-foreground: var(--cream);
+  --border: var(--rule);
+  --input: transparent;
+  --input-background: var(--cream-soft);
+  --ring: var(--orange);
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+
+  --color-cream: var(--cream);
+  --color-cream-soft: var(--cream-soft);
+  --color-cream-deep: var(--cream-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-rule: var(--rule);
+  --color-orange: var(--orange);
+  --color-orange-press: var(--orange-press);
+  --color-orange-soft: var(--orange-soft);
+  --color-pink: var(--pink);
+  --color-pink-soft: var(--pink-soft);
+
+  --font-display: var(--f-display);
+  --font-sans: var(--f-body);
+  --font-mono: var(--f-mono);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+}
+
+@layer base {
+  html {
+    font-size: var(--font-size);
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  body {
+    font-family: var(--f-body);
+    background: var(--cream);
+    color: var(--ink);
+    font-feature-settings: 'ss01', 'ss02';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--orange);
+    color: var(--cream);
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--f-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+
+  h2 {
+    font-size: clamp(2.25rem, 4.5vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  button {
+    font-family: var(--f-body);
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--f-display); }
+  .font-body { font-family: var(--f-body); }
+  .font-mono { font-family: var(--f-mono); }
+
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .rule {
+    border-color: var(--rule);
+  }
+
+  .display-italic {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Editorial 12-column overlay — faint vertical rules */
+  .grid-columns {
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc((100% / 12) - 1px),
+      var(--grid-pink) calc((100% / 12) - 1px),
+      var(--grid-pink) calc(100% / 12)
+    );
+  }
+
+  /* Pink dot grid backdrop, like the original site's section breaks */
+  .grid-dots {
+    background-image: radial-gradient(var(--pink) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: 0 0;
+  }
+
+  .grid-dots-soft {
+    background-image: radial-gradient(var(--pink-soft) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Crosshair tick — used at section corners */
+  .tick::before,
+  .tick::after {
+    content: "";
+    position: absolute;
+    background: var(--rule);
+  }
+  .tick::before { left: 50%; top: 0; bottom: 0; width: 1px; transform: translateX(-50%); }
+  .tick::after { top: 50%; left: 0; right: 0; height: 1px; transform: translateY(-50%); }
+}
